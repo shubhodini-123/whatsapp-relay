@@ -1,17 +1,11 @@
 from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 import time
 
-# Initialize the WebDriver
-#service = Service("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe")
-# browser = webdriver.Chrome(service=service)
-# browser.get("https://web.whatsapp.com/")
-# Set up Chrome options
 
 chrome_options = Options()
 chrome_options.add_argument("--start-maximized")

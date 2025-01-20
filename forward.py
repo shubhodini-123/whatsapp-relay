@@ -10,6 +10,9 @@ import time
 chrome_options = Options()
 chrome_options.add_argument("--start-maximized")
 
+sender = "Prashik"
+receiver = "Mummy"
+
 # Initialize the WebDriver
 driver = webdriver.Chrome(options=chrome_options)
 
@@ -18,7 +21,7 @@ driver.get('https://web.whatsapp.com/')
 wait = WebDriverWait(driver, 600)  # Wait for QR code scanning
 driver.implicitly_wait(10)  # Implicit wait for 10 seconds
 # Global variable to track the last processed message time
-last_message_time = {"Sender": None, "Reciever": None}
+last_message_time = {sender: None,receiver: None}
 
 # Function to clear the search bar
 def clear_search_bar():
@@ -158,6 +161,6 @@ def detect_and_forward_message(from_group, to_group):
 # Main execution
 if __name__ == "__main__":
     try:
-        detect_and_forward_message("Prashik0", "Mma")
+        detect_and_forward_message(sender, receiver)
     finally:
         driver.quit()

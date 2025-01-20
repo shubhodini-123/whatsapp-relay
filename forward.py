@@ -59,9 +59,10 @@ def detect_and_forward_message(from_group, to_group):
 
             # Locate the last message's timestamp
             timestamp_elements = driver.find_elements(By.XPATH, '//span[contains(@class, "x1rg5ohu x16dsc37")]')
+            print("timestamp_elements", timestamp_elements)
             if timestamp_elements:
                 latest_time = timestamp_elements[-1].text  # Get the timestamp of the latest message
-
+                print("latest time", latest_time)
                 # Check if the time is new (i.e., there is a new message)
                 if latest_time != last_message_time[from_group]:
                     last_message_time[from_group] = latest_time  # Update the last processed time
@@ -73,7 +74,7 @@ def detect_and_forward_message(from_group, to_group):
                     print("message_elements", message_elements)
                     last_message = message_elements[-1]
                     text_elements = last_message.find_elements(By.XPATH, './/span[contains(@class, "selectable-text")]')
-                    
+                    print("text elements", text_elements)
                     # Check if the message is text
                     if text_elements:
                         message = text_elements[0].text
@@ -157,6 +158,6 @@ def detect_and_forward_message(from_group, to_group):
 # Main execution
 if __name__ == "__main__":
     try:
-        detect_and_forward_message("Vishal Burrewar", "Khushal Gupta")  # Detect and forward a message from "Sender" to "Receiver"
+        detect_and_forward_message("Prashik0", "Mma")
     finally:
         driver.quit()

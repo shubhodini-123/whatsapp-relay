@@ -44,7 +44,7 @@ def open_group(group_name):
         search_input = search_bar.find_element(By.XPATH, './/div')
         search_input.send_keys(group_name + Keys.ENTER)
         time.sleep(2)
-        print(f"Opened chat with {group_name}")
+        print(f"Opened chat with {group_name}, exiting open_group function with success")
     except Exception as e:
         print(f"Error locating group {group_name}: {e}")
 
@@ -157,6 +157,6 @@ def detect_and_forward_message(from_group, to_group):
 # Main execution
 if __name__ == "__main__":
     try:
-        detect_and_forward_message("Prashik0", "Mma")  # Detect and forward a message from "Sender" to "Receiver"
+        detect_and_forward_message("Vishal Burrewar", "Khushal Gupta")  # Detect and forward a message from "Sender" to "Receiver"
     finally:
         driver.quit()
